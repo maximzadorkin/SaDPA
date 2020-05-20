@@ -57,6 +57,8 @@ const drawFractal = () => {
   const fractal = document.querySelector('#fractal'); 
   const svg = document.createElement('svg');
 
+  const timeStart = new Date().getTime();
+  
   // Создание главного треугольника
   const mTriangle = document.createElement('polygon');
   const height = length - Math.sqrt(3) * length / 2;
@@ -65,16 +67,18 @@ const drawFractal = () => {
   const topPoint = makePoint(length / 2, height);
   const trianglePoints = [...Object.values(leftPoint),
     ...Object.values(topPoint), ...Object.values(rightPoint)];
-  mTriangle.setAttribute('points', `${trianglePoints.join(' ')}`);
-  mTriangle.setAttribute('fill', color);
-  svg.append(mTriangle);
+    mTriangle.setAttribute('points', `${trianglePoints.join(' ')}`);
+    mTriangle.setAttribute('fill', color);
+    svg.append(mTriangle);
+    
+    
+    //строим фрактал
+    const points = [makePoint(length / 4, (length + height) / 2)]; // пояснение в dive к этой точке
+    dive(fractal, svg, points, depth, maxDepth, length / 2, triangleColor);
+    
+    fractal.innerHTML = svg.innerHTML;
+    const timeEnd = new Date().getTime();
+    document.querySelector('.time').textContent = `Затраченное время: ${timeEnd - timeStart}`;
+  };
   
-  
-  //строим фрактал
-  const points = [makePoint(length / 4, (length + height) / 2)]; // пояснение в dive к этой точке
-  dive(fractal, svg, points, depth, maxDepth, length / 2, triangleColor);
-  
-  fractal.innerHTML = svg.innerHTML;
-};
-
-document.querySelector('#start-btn').addEventListener('click', drawFractal);
+  document.querySelector('#start-btn').addEventListener('click', drawFractal);
