@@ -1,0 +1,49 @@
+$main-color: #ffcc00
+$text-color: darken(white, 10%)
+$back: #222
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  background-color: $back
+.main-block
+  width: 350px
+  margin: 20px auto 0px
+  display: flex
+  align-items: center
+  justify-content: space-between
+.label-depth
+  color: $text-color
+  font-family: Helvetica
+  font-size: 20px
+.input-depth
+  padding: 8px 5px
+  width: 60px
+  border: 1px solid $main-color
+  border-radius: 5px
+  color: $text-color
+  font-family: Helvetica
+  font-size: 15px
+  outline: none
+.btn-draw
+  padding: 10px 15px
+  border-radius: 5px
+  border: none
+  background-color: darken($main-color, 8%)
+  color: $text-color
+  font-family: Helvetica
+  font-size: 15px
+  outline-color: $main-color 
+  &:hover
+    box-shadow: 0px 0px 5px 3px $main-color
+    cursor: pointer
+.split
+  border: 1px solid $main-color
+  border-color: $main-color
+  border-radius: 5px
+  width: 95%
+  margin: 20px auto 20px
+#picture
+  width: 600px
+  height: 600px
+  margin: auto

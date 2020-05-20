@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Салфетка Серпинского</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <input type="text" id="depth-fractal">
-  <button id="start-btn"></button>
+  <div class="main-block">
+    <p class="label-depth">Глубина:</p>
+    <input type="text" id="depth-fractal" class="input-depth" value="2">
+    <button id="start-btn" class="btn-draw">Нарисовать</button>
+  </div>
+  <div class="split"></div>
+  <div id="picture">
+    <svg id="fractal" width="500" height="500" style="height: 100%; width: 100%"></svg>
+  </div>
   <script src="js/main.js"></script>
 </body>
 </html>
