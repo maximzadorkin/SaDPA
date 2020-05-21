@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алгоритм Джонсона</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="data">
+      <table>
+        <thead>
+          <tr>
+            <th>Вершина 1</th>
+            <th>Вершина 2</th>
+            <th>Вес</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="inputs">
+        <input type="text" id="top1">
+        <input type="text" id="top2">
+        <input type="text" id="weight">
+        <button class="btn-add">+</button>
+      </div>
+    </div>
+    <button id="btn-draw" class="btn">Визуализировать граф</button>
+    <div id="picture">
+      <svg id="svg" width="600" height="600"></svg>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
