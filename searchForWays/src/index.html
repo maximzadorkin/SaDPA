@@ -8,30 +8,24 @@
 </head>
 <body>
   <div class="container">
-    <div class="data">
-      <table>
-        <thead>
-          <tr>
-            <th>Вершина 1</th>
-            <th>Вершина 2</th>
-            <th>Вес</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-      <div class="inputs">
-        <input type="text" id="top1">
-        <input type="text" id="top2">
-        <input type="text" id="weight">
-        <button class="btn-add">+</button>
-      </div>
-    </div>
+    <button id="quickStart" class="btn" style="display: block; margin: 0">Шаблон для работы</button>
+    <input type="text" placeholder="Введите вершины(через пробел)" id="tops">
+    <button class="btn" id="createMatrix">Создать матрицу</button>
+    <table id="matrix"></table>
     <button id="btn-draw" class="btn">Визуализировать граф</button>
-    <div id="picture">
-      <svg id="svg" width="600" height="600"></svg>
+    <div class="find">
+      <input type="text" placeholder="начальная точка" class="findInput" id="startPoint"> 
+      <input type="text" placeholder="конечная точка" class="findInput" id="endPoint">
+      <button id="findRoad" class="btn">Найти</button>
     </div>
+    <div id="picture"></div>
+    <p id="output"></p>
   </div>
+  <script src="js/quickStart.js"></script>
+  <script src="js/algDijkstra.js"></script>
+  <script src="js/svgImaging.js"></script>
+  <script src="js/imagingGraph.js"></script>
+  <script src="js/matrix.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
