@@ -1,0 +1,57 @@
+$text-color: #ffffff
+$back-color: #222222
+$main-color: #A2CA13
+$stop-color: #f11f61
+  
+*
+  box-sizing: border-box
+  font-size: 15px
+body
+  background-color: $back-color 
+.inp
+  margin: 10px
+  padding: 10px
+  border-radius: 5px
+  border: none
+  outline: none
+.btn
+  margin: 10px
+  padding: 10px
+  border-radius: 5px
+  color: $text-color
+  background-color: $main-color
+  border: none
+  outline: none
+  &:hover
+    cursor: pointer
+    opacity: 0.9
+p 
+  margin: 0
+  padding: 0
+  text-align: center
+  font-family: 'Helvetica'
+
+td 
+  padding: 0
+  margin: 0
+  width: 30px
+  height: 30px
+  border: 1px solid $main-color
+  &:hover
+    opacity: 0.7
+    cursor: pointer
+.cell, .barrier
+  width: 100%
+  height: 100%
+  outline: none
+  background-color: $back-color
+  color: $text-color
+  border: none
+  text-align: center
+  cursor: pointer
+.points
+  background-color: $text-color
+  border: none
+
+#width
+  width: 300px
