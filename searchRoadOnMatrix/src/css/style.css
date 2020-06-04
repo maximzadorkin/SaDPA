@@ -67,6 +67,14 @@ td:hover {
   border: none;
 }
 
+.success {
+  background-color: #A2CA13;
+}
+
 #width {
   width: 300px;
+}
+
+table {
+  margin: auto;
 }

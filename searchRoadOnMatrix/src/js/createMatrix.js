@@ -2,11 +2,7 @@ const weightMode = 'Режим изменения веса';
 const createBarriersMode = 'Режим создания преград';
 
 const createMatrix = () => {
-  if (document.querySelector('table')) {
-    document.body.querySelector('table').remove();
-    document.querySelector('#mode').textContent = createBarriersMode;
-  }
-
+  cleanAll();
   const width = Number(document.querySelector('#width').value);
 
   const table = document.createElement('table');
@@ -15,7 +11,6 @@ const createMatrix = () => {
   document.body.append(table);
 
   for (let i = 1; i <= width; i += 1) {
-
     const line = document.createElement('tr');
     for (let j = 1; j <= width; j += 1) {
 
@@ -42,21 +37,18 @@ const createMatrix = () => {
 
     }
     document.querySelector('tbody').append(line);
-
   }
-  
 };
 
 const changeMode = () => {
   const btnMode = document.querySelector('#mode');
-  
   if (btnMode.textContent === createBarriersMode) {
     // выставляем режим преград
     btnMode.textContent = weightMode;
     [...document.querySelectorAll('.cell')].forEach(el => {
       el.setAttribute('readonly', 'readonly');
     });
-    [...document.querySelectorAll('.cell-wrap')].forEach(el => {
+    [...document.querySelectorAll('.cell')].forEach(el => {
       el.addEventListener('click', barrier);
     });
   } else if (btnMode.textContent === weightMode) {
@@ -69,5 +61,19 @@ const changeMode = () => {
       el.removeEventListener('click', barrier);
     });
   }
-  
+};
+
+const barrier = () => {
+  const mode = document.querySelector('#mode');
+  if (mode.textContent !== weightMode) return;
+
+  if (event.target.className !== 'barrier') {
+    event.target.className = 'barrier';
+    event.target.closest('td').style.border = 'none';
+    event.target.style.backgroundColor = 'white';
+  } else {
+    event.target.className = 'cell';
+    event.target.closest('td').style.border = '1px solid #A2CA13';
+    event.target.style.backgroundColor = '#222222';
+  }
 };
