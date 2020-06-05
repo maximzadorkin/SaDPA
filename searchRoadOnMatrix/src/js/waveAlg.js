@@ -1,6 +1,8 @@
 const waveAlg = () => {
   if (!document.querySelector('table')) return;
   const diagonal = document.querySelector('#diagonal').checked;
+
+  const timeStart = new Date().getMilliseconds();
   const matrix = readTable();
   addDirections(matrix, diagonal); // true значит добавляем и диагональные направления
   addPosition(matrix);
@@ -48,5 +50,6 @@ const waveAlg = () => {
     step = matrix[x][y];
     road.unshift(step);
   }
-  drawRoad(road, weightOfRoad);
+  const timeEnd = new Date().getMilliseconds();
+  drawRoad(road, weightOfRoad, timeEnd - timeStart);
 };

@@ -7,11 +7,11 @@ const drawStep = (road) => {
   if (road.length > 1) setTimeout(drawStep, 50, road.slice(1));
 }
 
-const drawRoad = (road, weightOfRoad) => {
+const drawRoad = (road, weightOfRoad, time) => {
   clearTableResult();
   drawStep(road);
   const weightRoadText = document.createElement('p');
   weightRoadText.id = 'weightRoad';
-  weightRoadText.textContent = `Вес пути: ${weightOfRoad}`;
+  weightRoadText.textContent = `Вес пути: ${weightOfRoad} | Время: ${time}`;
   document.body.append(weightRoadText);
 };

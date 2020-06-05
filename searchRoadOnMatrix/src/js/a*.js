@@ -17,6 +17,7 @@ const aStar = () => {
   if (!document.querySelector('table')) return;
   const diagonal = document.querySelector('#diagonal').checked;
 
+  const timeStart = new Date().getMilliseconds();
   const matrix = readTable();
   addDirections(matrix, diagonal);
   addPosition(matrix);
@@ -67,5 +68,6 @@ const aStar = () => {
 
   // вес пути
   const weightOfRoad = matrix[finishNode.position.x][finishNode.position.y].g;
-  drawRoad(road, weightOfRoad);
+  const timeEnd = new Date().getMilliseconds();
+  drawRoad(road, weightOfRoad, timeEnd - timeStart);
 };
