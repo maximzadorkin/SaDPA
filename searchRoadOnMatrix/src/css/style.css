@@ -68,7 +68,12 @@ td:hover {
 }
 
 .success {
-  background-color: #A2CA13;
+  background-color: #A2CA13 !important;
+  color: #ffffff;
+}
+
+p {
+  color: #ffffff;
 }
 
 #width {

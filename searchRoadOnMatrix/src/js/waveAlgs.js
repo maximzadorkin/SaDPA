@@ -1,19 +1,4 @@
-/*
-  g - стоимость от начала пути
-  h - эвристическая стоимость 
-  f - g + h
-*/
-const getH = (startNode, endNode) => 
-  Number(Math.abs(endNode.x - startNode.x) + Math.abs(endNode.y - startNode.y));
-
-const setGHFFrom = (dir, node, finishNode) => {
-  dir.g = +node.g + +dir.value; // вычислили g
-  dir.h = getH(dir.position, finishNode.position); // вычислили h
-  dir.f = Number(dir.g) + dir.h; // вычислили f
-  dir.from = node.position;
-};
-
-const aStar = () => {
+const waveAlg = () => {
   if (!document.querySelector('table')) return;
 
   const matrix = readTable();
@@ -24,8 +9,6 @@ const aStar = () => {
   const finishNode = matrix[matrix.length - 1][matrix.length - 1];
 
   startNode.g = 0;
-  startNode.h = getH(startNode.position, finishNode.position);
-  startNode.f = startNode.g + startNode.h;
   let lastMinimal = startNode;
   
   let pendingReview = [];
