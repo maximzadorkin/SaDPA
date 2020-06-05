@@ -47,9 +47,9 @@ const changeMode = () => {
     btnMode.textContent = weightMode;
     [...document.querySelectorAll('.cell')].forEach(el => {
       el.setAttribute('readonly', 'readonly');
-    });
-    [...document.querySelectorAll('.cell')].forEach(el => {
       el.addEventListener('click', barrier);
+      el.addEventListener('mouseup', barrierListenerCancelled);
+      el.addEventListener('mousedown', barrierListener);
     });
   } else if (btnMode.textContent === weightMode) {
     // выставляем режим для измены веса
@@ -59,8 +59,27 @@ const changeMode = () => {
     });
     [...document.querySelectorAll('.cell-wrap')].forEach(el => {
       el.removeEventListener('click', barrier);
+      el.removeEventListener('mouseup', barrierListenerCancelled);
+      el.removeEventListener('mousedown', barrierListener);
     });
   }
+};
+
+const barrierListener = () => {
+  [...document.querySelectorAll('.cell')].forEach(el => {
+    el.addEventListener('mouseover', barrier);
+  });
+  [...document.querySelectorAll('.barrier')].forEach(el => {
+    el.addEventListener('mouseover', barrier);
+  });
+};
+const barrierListenerCancelled = () => {
+  [...document.querySelectorAll('.cell')].forEach(el => {
+    el.removeEventListener('mouseover', barrier);
+  });
+  [...document.querySelectorAll('.barrier')].forEach(el => {
+    el.removeEventListener('mouseover', barrier);
+  });
 };
 
 const barrier = () => {
@@ -73,7 +92,7 @@ const barrier = () => {
     event.target.style.backgroundColor = 'white';
   } else {
     event.target.className = 'cell';
-    event.target.closest('td').style.border = '1px solid #A2CA13';
+    event.target.closest('td').style.border = '1px solid #008CF0';
     event.target.style.backgroundColor = '#222222';
   }
 };

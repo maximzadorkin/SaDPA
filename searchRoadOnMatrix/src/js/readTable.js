@@ -43,7 +43,7 @@ const readTable = () => {
   return matrix;
 };
 
-const addDirections = (matrix) => {
+const addDirections = (matrix, diagonal) => {
   const length = matrix.length;
   for (let i = 0; i < length; i += 1) {
     for (let j = 0; j < length; j += 1) {
@@ -51,26 +51,28 @@ const addDirections = (matrix) => {
       let dir = i > 0 ? { x: i - 1, y: j } : null;
       matrix[i][j].dirs.north = getType(matrix, dir) !== 'barrier' ? dir : null;
 
-      dir = i > 0 && j < length - 1 ? { x: i - 1, y: j + 1 } : null;
-      matrix[i][j].dirs.northeast = getType(matrix, dir) !== 'barrier' ? dir : null;
-
       dir = j < length - 1 ? { x: i, y: j + 1 } : null;
       matrix[i][j].dirs.east = getType(matrix, dir) !== 'barrier' ? dir : null;
-
-      dir = i < length - 1 && j < length - 1 ? { x: i + 1, y: j + 1 } : null;
-      matrix[i][j].dirs.southeast = getType(matrix, dir) !== 'barrier' ? dir : null;
 
       dir = i < length - 1 ? { x: i + 1, y: j } : null;
       matrix[i][j].dirs.south = getType(matrix, dir) !== 'barrier' ? dir : null;
 
-      dir = i < length - 1 && j > 0 ? { x: i + 1, y: j - 1 } : null;
-      matrix[i][j].dirs.southwest = getType(matrix, dir) !== 'barrier' ? dir : null;
-
       dir = j > 0 ? { x: i, y: j - 1 } : null;
       matrix[i][j].dirs.west = getType(matrix, dir) !== 'barrier' ? dir : null;
 
-      dir = i > 0 && j > 0 ? { x: i - 1, y: j - 1 } : null;
-      matrix[i][j].dirs.nortwest = getType(matrix, dir) !== 'barrier' ? dir : null;
+      if (diagonal) {
+        dir = i > 0 && j < length - 1 ? { x: i - 1, y: j + 1 } : null;
+        matrix[i][j].dirs.northeast = getType(matrix, dir) !== 'barrier' ? dir : null;
+
+        dir = i < length - 1 && j < length - 1 ? { x: i + 1, y: j + 1 } : null;
+        matrix[i][j].dirs.southeast = getType(matrix, dir) !== 'barrier' ? dir : null;
+
+        dir = i < length - 1 && j > 0 ? { x: i + 1, y: j - 1 } : null;
+        matrix[i][j].dirs.southwest = getType(matrix, dir) !== 'barrier' ? dir : null;
+
+        dir = i > 0 && j > 0 ? { x: i - 1, y: j - 1 } : null;
+        matrix[i][j].dirs.nortwest = getType(matrix, dir) !== 'barrier' ? dir : null;
+      }
     }
   }
 };

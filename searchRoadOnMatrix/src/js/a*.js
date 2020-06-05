@@ -15,9 +15,10 @@ const setGHFFrom = (dir, node, finishNode) => {
 
 const aStar = () => {
   if (!document.querySelector('table')) return;
+  const diagonal = document.querySelector('#diagonal').checked;
 
   const matrix = readTable();
-  addDirections(matrix);
+  addDirections(matrix, diagonal);
   addPosition(matrix);
 
   const startNode = matrix[0][0];

@@ -2,6 +2,9 @@ document.querySelector('#createMatrix').addEventListener('click', createMatrix);
 document.querySelector('#mode').addEventListener('click', changeMode);
 document.querySelector('#width').addEventListener('change', cleanAll);
 document.querySelector('#aStar').addEventListener('click', aStar);
+document.querySelector('#waveAlg').addEventListener('click', waveAlg);
+document.querySelector('#greedyAlg').addEventListener('click', greedyAlg);
+document.querySelector('#dijkctraAlg').addEventListener('click', dijkstraAlg);
 
 function clearTableResult() {
   const weightResult = document.body.querySelector('#weightRoad');

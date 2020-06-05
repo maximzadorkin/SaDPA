@@ -8,18 +8,30 @@
 </head>
 <body>
 
-<div>
-  <input type="text" class="inp" placeholder="сторона матрицы(в клетках)" id="width">
-</div>
-<button class="btn" id="createMatrix">Создать матрицу</button>
-<button class="btn" id="mode" >Режим создания преград</button>
-<button class="btn" id="aStar">A*</button>
-<button class="btn" id="">Двухлучевой алгоритм</button>
+  <div>
+    <input type="text" class="inp" placeholder="сторона матрицы(в клетках)" id="width">
+  </div>
+  <button class="btn" id="createMatrix">Создать матрицу</button>
+  <button class="btn" id="mode" >Режим создания преград</button>
+  <div>
+    <button class="btn btn-choise" id="waveAlg">Волновой алгоритм</button>
+    <button class="btn btn-choise" id="greedyAlg">Жадный алгоритм</button>
+    <button class="btn btn-choise" id="aStar">A*</button>
+  </div>
+  <label for="diagonal">
+    <input type="checkbox" name="diagonal" id="diagonal">
+    Учитывать диагональные направления
+  </label>
 
 <script src="js/draw.js"></script>
 <script src="js/readTable.js"></script>
+<script src="js/createTable.js"></script>
+
 <script src="js/a*.js"></script>
-<script src="js/createMatrix.js"></script>
+<script src="js/waveAlg.js"></script>
+<script src="js/greedyAlg.js"></script>
+<script src="js/dijkstraAlg.js"></script>
+
 <script src="js/main.js"></script>
 </body>
 </html>

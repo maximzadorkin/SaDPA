@@ -1,8 +1,8 @@
 $text-color: #ffffff
 $back-color: #222222
-$main-color: #A2CA13
+$main-color: #008CF0//#A2CA13
 $stop-color: #f11f61
-$success-color: #A2CA13
+$success-color: #f11f61//#66be3e
   
 *
   box-sizing: border-box
@@ -26,7 +26,10 @@ body
   &:hover
     cursor: pointer
     opacity: 0.9
+.btn-choise
+  background-color: $stop-color
 p 
+  font-size: 26px
   margin: 0
   padding: 0
   text-align: center
@@ -57,8 +60,11 @@ td
   background-color: $success-color !important
   color: $text-color 
 
-p 
+p#weightRoad, label
+  font-size: 18px
+  font-family: Helvetica
   color: $text-color
+  margin: 10px
 #width
   width: 300px
 
