@@ -9,16 +9,18 @@ const createMatrix = () => {
   table.append(document.createElement('thead'));
   table.append(document.createElement('tbody'));
   document.body.append(table);
+  const startCoord = document.querySelector('#startCoord').value.split(' ');
+  const endCoord = document.querySelector('#endCoord').value.split(' ');
 
   for (let i = 1; i <= width; i += 1) {
     const line = document.createElement('tr');
     for (let j = 1; j <= width; j += 1) {
 
-      if (i === 1 && j === 1 || i === width && j === width) {
+      if (i === +startCoord[0] && j === +startCoord[1] || i === +endCoord[0] && j === +endCoord[1]) {
         const pointCell = document.createElement('td');
         pointCell.classList.add('points');
         const text = document.createElement('p');
-        if (i === 1) text.textContent = 'S';
+        if (i === +startCoord[0] && j === +startCoord[1]) text.textContent = 'S';
         else text.textContent = 'E';
         pointCell.append(text);
         line.append(pointCell);

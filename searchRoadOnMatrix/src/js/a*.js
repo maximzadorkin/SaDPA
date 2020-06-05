@@ -21,8 +21,10 @@ const aStar = () => {
   addDirections(matrix, diagonal);
   addPosition(matrix);
 
-  const startNode = matrix[0][0];
-  const finishNode = matrix[matrix.length - 1][matrix.length - 1];
+  const startCoord = document.querySelector('#startCoord').value.split(' ');
+  const endCoord = document.querySelector('#endCoord').value.split(' ');
+  const startNode = matrix[startCoord[0] - 1][startCoord[1] - 1];
+  const finishNode = matrix[endCoord[0] - 1][endCoord[1] - 1];
 
   startNode.g = 0;
   startNode.h = getH(startNode.position, finishNode.position);

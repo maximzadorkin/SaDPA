@@ -12,6 +12,7 @@ const readTable = () => {
   const width = Number(document.querySelector('#width').value);
   const table = document.querySelector('tbody');
   const matrix = [];
+  const startCoord = document.querySelector('#startCoord').value.split(' ');
   
   // считывание в матрицу
   const lines = [...table.children];
@@ -24,7 +25,7 @@ const readTable = () => {
       const point = {};
       if (line[j] === null) {
         point.value = 0;
-        point.type = i === 0 ? 'start' : 'end';
+        point.type = i === startCoord[0] - 1 && j === startCoord[1] - 1 ? 'start' : 'end';
         matrixLine.push(point);
         continue;
       } 

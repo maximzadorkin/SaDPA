@@ -4,7 +4,9 @@ document.querySelector('#width').addEventListener('change', cleanAll);
 document.querySelector('#aStar').addEventListener('click', aStar);
 document.querySelector('#waveAlg').addEventListener('click', waveAlg);
 document.querySelector('#greedyAlg').addEventListener('click', greedyAlg);
-document.querySelector('#dijkctraAlg').addEventListener('click', dijkstraAlg);
+
+document.querySelector('#startCoord').addEventListener('click', cleanAll);
+document.querySelector('#endCoord').addEventListener('click', cleanAll);
 
 function clearTableResult() {
   const weightResult = document.body.querySelector('#weightRoad');

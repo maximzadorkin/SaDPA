@@ -5,8 +5,13 @@ const waveAlg = () => {
   addDirections(matrix, diagonal); // true значит добавляем и диагональные направления
   addPosition(matrix);
 
-  const startNode = matrix[0][0];
-  const finishNode = matrix[matrix.length - 1][matrix.length - 1];
+  const startCoord = document.querySelector('#startCoord').value.split(' ');
+  const endCoord = document.querySelector('#endCoord').value.split(' ');
+  console.log(startCoord)
+  const startNode = matrix[startCoord[0] - 1][startCoord[1] - 1];
+  const finishNode = matrix[endCoord[0] - 1][endCoord[1] - 1];
+  console.log(startNode)
+  console.log(finishNode)
   startNode.g = 0;
   finishNode.g = 0;
 
@@ -34,7 +39,7 @@ const waveAlg = () => {
   }
   
   // находим пройденный путь
-  let step = matrix[finishNode.position.x][finishNode.position.y];
+  let step = finishNode;
   const road = [step];
   let weightOfRoad = 0;
   while (road[0].type !== 'start') {
