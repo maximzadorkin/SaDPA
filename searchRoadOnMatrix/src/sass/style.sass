@@ -2,7 +2,7 @@ $text-color: #ffffff
 $back-color: #222222
 $main-color: #008CF0//#A2CA13
 $stop-color: #f11f61
-$success-color: #f11f61//#66be3e
+$success-color: #66be3e
   
 *
   box-sizing: border-box
@@ -27,7 +27,7 @@ body
     cursor: pointer
     opacity: 0.9
 .btn-choise
-  background-color: $stop-color
+  background-color: $success-color
 p 
   font-size: 26px
   margin: 0
@@ -44,7 +44,16 @@ td
   &:hover
     opacity: 0.7
     cursor: pointer
-.cell, .barrier
+.barrier
+  background-color: $stop-color !important
+  width: 100%
+  height: 100%
+  outline: none
+  color: $stop-color !important
+  border: none
+  text-align: center
+  cursor: pointer
+.cell
   width: 100%
   height: 100%
   outline: none
