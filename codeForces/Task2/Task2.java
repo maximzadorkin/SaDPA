@@ -18,39 +18,23 @@ public class Task2 {
     int leftPoint = 1;
     int rightPoint = n;
     int v = n;
-    while (rightPoint != leftPoint) {
-      boolean badNumber = false; // если с этим v нельзя написать код
+    while (leftPoint < rightPoint) {
+      int pivot =  leftPoint + (rightPoint - leftPoint) / 2; // v на этой итерации,
+      // середина нашего отрезка текущего
 
-      // высчитаем количество строчек кода при нынешней v
-      // по указанной в задании формуле
-      int countLinesOfCode = 0;
-      int iter = v; // итерация
-      while (countLinesOfCode < n) {
-        if (iter <= 0) badNumber = true;
-
+      int countLinesOfCode = 0; // высчитаем при данном v количество строк
+      int iter = pivot;
+      while (iter > 0) {
         countLinesOfCode += iter;
-        iter /= k; // сделаем нашу формулу рекурентной
-      }
+        iter /= k; // сделали формулу рекурентной
+      }   
 
-      if (!badNumber) {
-        // запишем новый v
-        v = rightPoint;
-        // сдвинем крайнюю правую точку чтобы попробовать найти в ней
-        // этим самым уменьшив отрезок вдвое
-        int offset = (rightPoint - leftPoint) / 2;
-        rightPoint = leftPoint + offset;
-        if (offset < 1) break;
+      if (countLinesOfCode >= n) { // проверяем написали ли мы необходимое количество строк кода
+        v = pivot; // если написали то ставим новый результат как наименьший
+        rightPoint = pivot; // смещаем правую точку отрезка. сужаем вдвое область поиска
       }
-      else {
-        /* так как в этой точке не получилось вычислить
-         * то не записываем результат
-         * и смещаемся на правую часть отрезка такой же длины
-        */
-        int section = rightPoint + (rightPoint - leftPoint); // смещенный в право отрезок, точнее его правая точка
-        leftPoint = rightPoint + 1; // +1 так как это значение уже все равно не подойдет
-        rightPoint = leftPoint + (section - leftPoint) / 2; 
-        v = rightPoint; // так как rightPoint по сути наша точка pivot
-      }
+      else leftPoint = pivot + 1; // если с этим числом не получилось то перемистимся на правую часть отрезка
+      // для это сдвинем левую точку на половину отрезка
     }
 
     System.out.println(v);
