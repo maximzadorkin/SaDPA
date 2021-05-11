@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/MaximZar/hexlet_JavaScript#readme",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
